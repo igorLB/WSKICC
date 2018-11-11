@@ -1,38 +1,35 @@
 package dao;
 
 import classes.Cliente;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.sql.*;
 
 public class ClienteDAO {
-
     
-    public Cliente getCliente(String email) {
+    public Cliente getUsuario(int id_cliente) {
+
         Cliente usuario = new Cliente();
 
         try {
             Connection con = Conecta.getConexao();
-            String sql = "SELECT * FROM tb_cliente WHERE email=? LIMIT 1";
+            String sql = "SELECT * FROM tb_cliente WHERE id_cliente=?";
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setString(1, email);
+            ps.setInt(1, id_cliente);
             ResultSet rs = ps.executeQuery();
 
             if (rs.next()) {
-                usuario.setDataNascimento(rs.getString("dt_nascimento"));
-                usuario.setCpf(rs.getString("nm_cpf"));
                 usuario.setId_cliente(rs.getInt("id_cliente"));
-                usuario.setTelefone(rs.getString("nm_telefone"));
-                usuario.setCelular(rs.getString("nm_celular"));
-                usuario.setLogin(rs.getString("login"));
-                usuario.setEmail(rs.getString("email"));
-                usuario.setSenha(rs.getString("senha"));
+                usuario.setCpf(rs.getString("cd_cpf"));
                 usuario.setNome(rs.getString("nm_cliente"));
-                usuario.setEndereco(rs.getString("id_endereco"));
-                usuario.setCartao_credito(rs.getString("cartao_credito"));
+                usuario.setDataNascimento(rs.getDate("dt_nascimento"));
                 usuario.setNivel_acesso(rs.getInt("ds_nivel_de_acesso"));
+                usuario.setLogin(rs.getString("login"));
+                usuario.setSenha(rs.getString("senha"));
+                usuario.setEmail(rs.getString("email"));
+                usuario.setCelular(rs.getString("nm_celular"));
+                usuario.setTelefone(rs.getString("nm_telefone"));
+                usuario.setCartao_credito(rs.getString("cartao_de_credito"));
                 usuario.setAtivo(rs.getInt("ativo"));
-
+                usuario.setEndereco(rs.getString("id_endereco"));
             } else {
                 usuario = null;
             }
@@ -48,38 +45,43 @@ public class ClienteDAO {
         return usuario;
     }
 
-    public boolean cadastrar(Cliente user) {
-        boolean resp = false;
-
+    public static Cliente cadastrar(Cliente user) {
+        
         try {
+            // Conexão com banco de dados
             Connection con = Conecta.getConexao();
-            String sql = "INSERT INTO tb_cliente(dt_nascimento, cd_cpf, nm_telefone, nm_celular, login, email, senha, nm_cliente, endereco, cartao_credito, ds_nivel_de_acesso, ativo) values(?,?,?,?,?,?,?,?,?,?,?,?)";
+            
+            // Sintaxe para inserir os dados no banco, tem 12
+            String sql = "INSERT INTO tb_cliente(cd_cpf, nm_cliente, dt_nascimento, ds_nivel_de_acesso, login, senha, email, nm_celular, nm_telefone, cartao_de_credito, ativo, id_endereco) values(?,?,?,?,?,?,?,?,?,?,?,?)";
+            
             PreparedStatement ps = con.prepareStatement(sql);
 
-            ps.setString(1, user.getDataNascimento());
-            ps.setString(2, user.getCpf());
-            ps.setString(4, user.getTelefone());
-            ps.setString(5, user.getCelular());
-            ps.setString(6, user.getLogin());
+            ps.setString(1, user.getCpf());
+            ps.setString(2, user.getNome());
+            ps.setDate(3, user.getDataNascimento());
+            ps.setInt(4, user.getNivel_acesso());
+            ps.setString(5, user.getLogin());
+            ps.setString(6, user.getSenha());
             ps.setString(7, user.getEmail());
-            ps.setString(8, user.getSenha());
-            ps.setString(9, user.getNome());
-            ps.setString(11, user.getEndereco());
-            ps.setString(12, user.getCartao_credito());
-            ps.setInt(13, user.getNivel_acesso());
-            ps.setInt(14, user.getAtivo());
-
+            ps.setString(8, user.getCelular());
+            ps.setString(9, user.getTelefone());
+            ps.setString(10, user.getCartao_credito());
+            ps.setInt(11, user.getAtivo());
+            ps.setString(12, user.getEndereco());
+            
             ps.execute();
-
+            
             ps.close();
             con.close();
-
-            resp = true;
+            
+            //out.println("Cadastro realizado !");
 
         } catch (Exception e) {
             e.printStackTrace();
+            
         }
 
-        return resp;
+        return user;
     }
+       
 }

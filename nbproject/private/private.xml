@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/Elaine/Documents/NetBeansProjects/WSKicc/src/java/classes/Pedido.java</file>
+            <file>file:/C:/Users/Elaine/Documents/NetBeansProjects/WSKicc/src/conf/MANIFEST.MF</file>
+            <file>file:/C:/Users/Elaine/Documents/NetBeansProjects/WSKicc/src/java/classes/Item.java</file>
+            <file>file:/C:/Users/Elaine/Documents/NetBeansProjects/WSKicc/src/java/dao/ClienteDAO.java</file>
+            <file>file:/C:/Users/Elaine/Documents/NetBeansProjects/WSKicc/src/java/webservices/ClientesResource.java</file>
+            <file>file:/C:/Users/Elaine/Documents/NetBeansProjects/WSKicc/src/java/classes/Produto.java</file>
+            <file>file:/C:/Users/Elaine/Documents/NetBeansProjects/WSKicc/src/java/classes/Utilitarios.java</file>
+            <file>file:/C:/Users/Elaine/Documents/NetBeansProjects/WSKicc/src/java/classes/Cart.java</file>
+            <file>file:/C:/Users/Elaine/Documents/NetBeansProjects/WSKicc/src/java/classes/Mensagem.java</file>
+            <file>file:/C:/Users/Elaine/Documents/NetBeansProjects/WSKicc/src/java/dao/Conecta.java</file>
+            <file>file:/C:/Users/Elaine/Documents/NetBeansProjects/WSKicc/src/java/webservices/ApplicationConfig.java</file>
+            <file>file:/C:/Users/Elaine/Documents/NetBeansProjects/WSKicc/src/java/classes/Email.java</file>
+            <file>file:/C:/Users/Elaine/Documents/NetBeansProjects/WSKicc/src/java/classes/Cliente.java</file>
+            <file>file:/C:/Users/Elaine/Documents/NetBeansProjects/WSKicc/src/java/dao/LoginDAO.java</file>
+            <file>file:/C:/Users/Elaine/Documents/NetBeansProjects/WSKicc/web/index.html</file>
+            <file>file:/C:/Users/Elaine/Documents/NetBeansProjects/WSKicc/src/java/dao/ProdutoDAO.java</file>
+            <file>file:/C:/Users/Elaine/Documents/NetBeansProjects/WSKicc/src/java/classes/ItemCart.java</file>
+        </group>
+    </open-files>
+</project-private>
