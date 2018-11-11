@@ -25,11 +25,11 @@ public class ProdutoDAO {
                 produto.setDescricao(rs.getString("ds_produto") );
                 produto.setMarca( rs.getString("nm_marca") );
                 produto.setPreco( rs.getFloat("vl_preco"));
-                produto.setPrecoPromocional(rs.getFloat("vl_preco_promociona"));
+                produto.setPrecoPromocional(rs.getFloat("vl_preco_promocional"));
                 produto.setQuantidade( rs.getInt("qt_produto") );
                 produto.setPeso( rs.getFloat("ds_peso") );
                 produto.setAtivo( rs.getInt("ds_ativo") );
-                produto.setDataValidade(rs.getDate("dt_validade")+"" );
+                produto.setDataValidade(rs.getDate("dt_validade") );
                 produto.setImagem1( rs.getString("image1") );
                 produto.setImagem2( rs.getString("image2") );
                 produto.setImagem3( rs.getString("image3") );
@@ -68,11 +68,11 @@ public class ProdutoDAO {
                 produto.setDescricao(rs.getString("ds_produto") );
                 produto.setMarca( rs.getString("nm_marca") );
                 produto.setPreco( rs.getFloat("vl_preco"));
-                produto.setPrecoPromocional(rs.getFloat("vl_preco_promociona"));
+                produto.setPrecoPromocional(rs.getFloat("vl_preco_promocional"));
                 produto.setQuantidade( rs.getInt("qt_produto") );
                 produto.setPeso( rs.getFloat("ds_peso") );
                 produto.setAtivo( rs.getInt("ds_ativo") );
-                produto.setDataValidade(rs.getString("dt_validade")+"" );
+                produto.setDataValidade(rs.getDate("dt_validade") );
                 produto.setImagem1( rs.getString("image1") );
                 produto.setImagem2( rs.getString("image2") );
                 produto.setImagem3( rs.getString("image3") );
