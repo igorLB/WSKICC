@@ -6,12 +6,13 @@
 package webservices;
 
 import classes.Cliente;
+import classes.Produto;
 import dao.ClienteDAO;
+import dao.ProdutoDAO;
 import java.util.List;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Consumes;
-import javax.ws.rs.DELETE;
 import javax.ws.rs.Produces;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -22,31 +23,36 @@ import javax.ws.rs.core.MediaType;
 /**
  * REST Web Service
  *
- * @author Elaine
+ * @author igorc
  */
-@Path("clientes")
-public class ClientesResource {
+@Path("produtos")
+public class ProdutosResource {
 
     @Context
     private UriInfo context;
 
     /**
-     * Creates a new instance of ClientesResource
+     * Creates a new instance of ProdutosResource
      */
-    public ClientesResource() {
+    public ProdutosResource() {
     }
 
     @GET
-    @Path("{id_cliente}")
     @Produces(MediaType.APPLICATION_JSON)
-    public String getUser(@PathParam("id_cliente") int id_cliente) {
-        Cliente user = new ClienteDAO().getUsuario(id_cliente);
-        if(user == null){
-            return "Usuario não encontrado";
-        } else {
-            return user.getNome();
-        }
+    public List<Produto> getProdutos(){
+        List<Produto> lista =  new ProdutoDAO().getProdutos();
+        return lista;
     }
     
-
+    @GET
+    @Path("{id_produto}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public String getProduto(@PathParam("id_produto") int id_produto) {
+        Produto produto = new ProdutoDAO().getProduto(id_produto);
+        if(produto == null){
+            return "Usuario não encontrado";
+        } else {
+            return produto.toString();
+        }
+    }
 }

@@ -7,7 +7,7 @@ public class ClienteDAO {
     
     public Cliente getUsuario(int id_cliente) {
 
-        Cliente usuario = new Cliente();
+        Cliente cliente = new Cliente();
 
         try {
             Connection con = Conecta.getConexao();
@@ -17,21 +17,21 @@ public class ClienteDAO {
             ResultSet rs = ps.executeQuery();
 
             if (rs.next()) {
-                usuario.setId_cliente(rs.getInt("id_cliente"));
-                usuario.setCpf(rs.getString("cd_cpf"));
-                usuario.setNome(rs.getString("nm_cliente"));
-                usuario.setDataNascimento(rs.getDate("dt_nascimento"));
-                usuario.setNivel_acesso(rs.getInt("ds_nivel_de_acesso"));
-                usuario.setLogin(rs.getString("login"));
-                usuario.setSenha(rs.getString("senha"));
-                usuario.setEmail(rs.getString("email"));
-                usuario.setCelular(rs.getString("nm_celular"));
-                usuario.setTelefone(rs.getString("nm_telefone"));
-                usuario.setCartao_credito(rs.getString("cartao_de_credito"));
-                usuario.setAtivo(rs.getInt("ativo"));
-                usuario.setEndereco(rs.getString("id_endereco"));
+                cliente.setId_cliente(rs.getInt("id_cliente"));
+                cliente.setCpf(rs.getString("cd_cpf"));
+                cliente.setNome(rs.getString("nm_cliente"));
+                cliente.setDataNascimento(rs.getDate("dt_nascimento"));
+                cliente.setNivel_acesso(rs.getInt("ds_nivel_de_acesso"));
+                cliente.setLogin(rs.getString("login"));
+                cliente.setSenha(rs.getString("senha"));
+                cliente.setEmail(rs.getString("email"));
+                cliente.setCelular(rs.getString("nm_celular"));
+                cliente.setTelefone(rs.getString("nm_telefone"));
+                cliente.setCartao_credito(rs.getString("cartao_de_credito"));
+                cliente.setAtivo(rs.getInt("ativo"));
+                cliente.setEndereco(rs.getString("id_endereco"));
             } else {
-                usuario = null;
+                cliente = null;
             }
 
             rs.close();
@@ -42,7 +42,7 @@ public class ClienteDAO {
             e.printStackTrace();
         }
 
-        return usuario;
+        return cliente;
     }
 
     public static Cliente cadastrar(Cliente user) {
