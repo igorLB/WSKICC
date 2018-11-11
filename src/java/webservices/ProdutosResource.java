@@ -39,7 +39,7 @@ public class ProdutosResource {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public List<Produto> getProdutos(){
+    public List<Produto> getUsers(){
         List<Produto> lista =  new ProdutoDAO().getProdutos();
         return lista;
     }

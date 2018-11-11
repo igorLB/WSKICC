@@ -29,7 +29,7 @@ public class ProdutoDAO {
                 produto.setQuantidade( rs.getInt("qt_produto") );
                 produto.setPeso( rs.getFloat("ds_peso") );
                 produto.setAtivo( rs.getInt("ds_ativo") );
-                produto.setDataValidade(rs.getDate("dt_validade") );
+                produto.setDataValidade(rs.getString("dt_validade") );
                 produto.setImagem1( rs.getString("image1") );
                 produto.setImagem2( rs.getString("image2") );
                 produto.setImagem3( rs.getString("image3") );
@@ -72,7 +72,7 @@ public class ProdutoDAO {
                 produto.setQuantidade( rs.getInt("qt_produto") );
                 produto.setPeso( rs.getFloat("ds_peso") );
                 produto.setAtivo( rs.getInt("ds_ativo") );
-                produto.setDataValidade(rs.getDate("dt_validade") );
+                produto.setDataValidade(rs.getString("dt_validade") );
                 produto.setImagem1( rs.getString("image1") );
                 produto.setImagem2( rs.getString("image2") );
                 produto.setImagem3( rs.getString("image3") );

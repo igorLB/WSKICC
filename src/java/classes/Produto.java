@@ -10,7 +10,7 @@ import java.sql.Date;
 
 public class Produto extends Utilitarios{
 
-    private Date dataValidade;
+    private String dataValidade;
     private float preco, precoPromocional, peso;
     private int idProduto, idCategoria, quantidade, ativo;
     private String nome, descricao, marca;
@@ -30,11 +30,11 @@ public class Produto extends Utilitarios{
         return print;
     }
     
-    public Date getDataValidade() {
+    public String getDataValidade() {
         return dataValidade;
     }
 
-    public void setDataValidade(Date dataValidade) {
+    public void setDataValidade(String dataValidade) {
         this.dataValidade = dataValidade;
     }
 
