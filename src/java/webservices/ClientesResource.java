@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package webservices;
 
 import classes.Cliente;
@@ -39,19 +35,19 @@ public class ClientesResource {
     @GET
     @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public String getUser(@PathParam("id") int id_cliente) {
-        Cliente user = new ClienteDAO().getUsuario(id_cliente);
-        if(user == null){
-            return "Usuario não encontrado";
+    public Cliente getCliente(@PathParam("id") int id_cliente) {
+        Cliente cliente = new ClienteDAO().getCliente(id_cliente);
+        if(cliente == null){
+            return null;
         } else {
-            return user.getNome();
+            return cliente;
         }
     }
     
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public List<Cliente> getUsers() {
-        List<Cliente> lista = new ClienteDAO().getUsuarios();
+    public List<Cliente> getClientes() {
+        List<Cliente> lista = new ClienteDAO().getClientes();
         return lista;
     }
 

@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class ClienteDAO {
     
-    public Cliente getUsuario(int id_cliente) {
+    public Cliente getCliente(int id_cliente) {
 
         Cliente cliente = new Cliente();
 
@@ -85,7 +85,7 @@ public class ClienteDAO {
         return user;
     }
     
-    public ArrayList<Cliente> getUsuarios() {
+    public ArrayList<Cliente> getClientes() {
         ArrayList<Cliente> lista = new ArrayList<Cliente>();
         try{
             Connection con = Conecta.getConexao();
