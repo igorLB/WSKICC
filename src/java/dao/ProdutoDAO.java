@@ -91,6 +91,48 @@ public class ProdutoDAO {
         return produtos;
     }
     
+    public ArrayList<Produto> buscarProdutos(String pesquisa) {
+
+        ArrayList <Produto> produtos = new ArrayList();
+        
+        try {
+            Connection con = Conecta.getConexao();            
+            String sql = "SELECT * FROM tb_produto WHERE UPPER(nm_produto) LIKE UPPER(?)ORDER BY id_produto ASC";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, "%"+pesquisa+"%");
+            ResultSet rs = ps.executeQuery();
+            
+            while(rs.next()){
+                Produto produto = new Produto();
+                
+                produto.setIdProduto( rs.getInt("id_produto") );
+                produto.setNome( rs.getString("nm_produto") );
+                produto.setDescricao(rs.getString("ds_produto") );
+                produto.setMarca( rs.getString("nm_marca") );
+                produto.setPreco( rs.getFloat("vl_preco"));
+                produto.setPrecoPromocional(rs.getFloat("vl_preco_promocional"));
+                produto.setQuantidade( rs.getInt("qt_produto") );
+                produto.setPeso( rs.getFloat("ds_peso") );
+                produto.setAtivo( rs.getInt("ds_ativo") );
+                produto.setDataValidade(rs.getString("dt_validade") );
+                produto.setImagem1( rs.getString("image1") );
+                produto.setImagem2( rs.getString("image2") );
+                produto.setImagem3( rs.getString("image3") );
+                produto.setIdCategoria(rs.getInt("id_categoria"));
+                
+                produtos.add(produto);
+            }
+            
+            rs.close();
+            con.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return produtos;
+    }
+    
     /*
     
     

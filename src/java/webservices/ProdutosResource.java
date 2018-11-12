@@ -55,4 +55,12 @@ public class ProdutosResource {
             return produto.toString();
         }
     }
+    
+    @GET
+    @Path("buscar/{pesquisa}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<Produto> buscar(@PathParam("pesquisa") String pesquisa) {
+        List<Produto> lista =  new ProdutoDAO().buscarProdutos(pesquisa);
+        return lista;
+    }
 }
