@@ -2,6 +2,7 @@ package dao;
 
 import classes.Cliente;
 import java.sql.*;
+import java.util.ArrayList;
 
 public class ClienteDAO {
     
@@ -20,7 +21,7 @@ public class ClienteDAO {
                 cliente.setId_cliente(rs.getInt("id_cliente"));
                 cliente.setCpf(rs.getString("cd_cpf"));
                 cliente.setNome(rs.getString("nm_cliente"));
-                cliente.setDataNascimento(rs.getDate("dt_nascimento"));
+                cliente.setDataNascimento(rs.getString("dt_nascimento"));
                 cliente.setNivel_acesso(rs.getInt("ds_nivel_de_acesso"));
                 cliente.setLogin(rs.getString("login"));
                 cliente.setSenha(rs.getString("senha"));
@@ -58,7 +59,7 @@ public class ClienteDAO {
 
             ps.setString(1, user.getCpf());
             ps.setString(2, user.getNome());
-            ps.setDate(3, user.getDataNascimento());
+            ps.setString(3, user.getDataNascimento());
             ps.setInt(4, user.getNivel_acesso());
             ps.setString(5, user.getLogin());
             ps.setString(6, user.getSenha());
@@ -82,6 +83,44 @@ public class ClienteDAO {
         }
 
         return user;
+    }
+    
+    public ArrayList<Cliente> getUsuarios() {
+        ArrayList<Cliente> lista = new ArrayList<Cliente>();
+        try{
+            Connection con = Conecta.getConexao();
+            Statement stmt = con.createStatement();
+            String sql = "SELECT * FROM tb_cliente";
+            ResultSet rs = stmt.executeQuery(sql);
+            
+            while(rs.next()){
+                Cliente cliente = new Cliente();
+                
+                cliente.setId_cliente(rs.getInt("id_cliente"));
+                cliente.setCpf(rs.getString("cd_cpf"));
+                cliente.setNome(rs.getString("nm_cliente"));
+                cliente.setDataNascimento(rs.getString("dt_nascimento"));
+                cliente.setNivel_acesso(rs.getInt("ds_nivel_de_acesso"));
+                cliente.setLogin(rs.getString("login"));
+                cliente.setSenha(rs.getString("senha"));
+                cliente.setEmail(rs.getString("email"));
+                cliente.setCelular(rs.getString("nm_celular"));
+                cliente.setTelefone(rs.getString("nm_telefone"));
+                cliente.setCartao_credito(rs.getString("cartao_de_credito"));
+                cliente.setAtivo(rs.getInt("ativo"));
+                cliente.setEndereco(rs.getString("id_endereco"));
+            
+            lista.add(cliente);
+            }
+            
+            rs.close();
+            stmt.close();
+            con.close();
+            
+        } catch(Exception e){
+            e.printStackTrace();
+        }
+        return lista;
     }
        
 }

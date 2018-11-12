@@ -22,7 +22,7 @@ import javax.ws.rs.core.MediaType;
 /**
  * REST Web Service
  *
- * @author Elaine
+ * @author Cristiano
  */
 @Path("clientes")
 public class ClientesResource {
@@ -37,9 +37,9 @@ public class ClientesResource {
     }
 
     @GET
-    @Path("{id_cliente}")
+    @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public String getUser(@PathParam("id_cliente") int id_cliente) {
+    public String getUser(@PathParam("id") int id_cliente) {
         Cliente user = new ClienteDAO().getUsuario(id_cliente);
         if(user == null){
             return "Usuario não encontrado";
@@ -48,5 +48,11 @@ public class ClientesResource {
         }
     }
     
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<Cliente> getUsers() {
+        List<Cliente> lista = new ClienteDAO().getUsuarios();
+        return lista;
+    }
 
 }
