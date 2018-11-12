@@ -8,21 +8,20 @@ import java.sql.Date;
 
 public class Cliente extends Utilitarios{
 
-    private Date dataNascimento;
     private int id_cliente, nivel_acesso, ativo;
-    private String cpf, telefone, celular, login, email, senha, nome, sobrenome, endereco, cartao_credito;
+    private String cpf, telefone, celular, login, email, senha, nome, dataNascimento, endereco, cartao_credito;
 
     /**
      * @return the dataNascimento
      */
-    public Date getDataNascimento() {
+    public String getDataNascimento() {
         return dataNascimento;
     }
 
     /**
      * @param dataNascimento the dataNascimento to set
      */
-    public void setDataNascimento(Date dataNascimento) {
+    public void setDataNascimento(String dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
 
@@ -164,20 +163,6 @@ public class Cliente extends Utilitarios{
      */
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    /**
-     * @return the sobrenome
-     */
-    public String getSobrenome() {
-        return sobrenome;
-    }
-
-    /**
-     * @param sobrenome the sobrenome to set
-     */
-    public void setSobrenome(String sobrenome) {
-        this.sobrenome = sobrenome;
     }
 
     /**
