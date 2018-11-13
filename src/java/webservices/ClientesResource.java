@@ -33,10 +33,10 @@ public class ClientesResource {
     }
 
     @GET
-    @Path("{id}")
+    @Path("{email}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Cliente getCliente(@PathParam("id") int id_cliente) {
-        Cliente cliente = new ClienteDAO().getCliente(id_cliente);
+    public Cliente getCliente(@PathParam("email") String email) {
+        Cliente cliente = new ClienteDAO().getCliente(email);
         if(cliente == null){
             return null;
         } else {
