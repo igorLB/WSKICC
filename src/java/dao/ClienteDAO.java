@@ -6,15 +6,15 @@ import java.util.ArrayList;
 
 public class ClienteDAO {
     
-    public Cliente getCliente(int id_cliente) {
+    public Cliente getCliente(String email) {
 
         Cliente cliente = new Cliente();
 
         try {
             Connection con = Conecta.getConexao();
-            String sql = "SELECT * FROM tb_cliente WHERE id_cliente=?";
+            String sql = "SELECT * FROM tb_cliente WHERE email=?";
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setInt(1, id_cliente);
+            ps.setString(1, email);
             ResultSet rs = ps.executeQuery();
 
             if (rs.next()) {

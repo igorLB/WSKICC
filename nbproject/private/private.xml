@@ -3,12 +3,18 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/igorc/Desktop/KICC/WSKICC/src/java/classes/Cliente.java</file>
-            <file>file:/C:/Users/igorc/Desktop/KICC/WSKICC/src/java/classes/Produto.java</file>
-            <file>file:/C:/Users/igorc/Desktop/KICC/WSKICC/src/java/webservices/ClientesResource.java</file>
-            <file>file:/C:/Users/igorc/Desktop/KICC/WSKICC/src/java/dao/ProdutoDAO.java</file>
-            <file>file:/C:/Users/igorc/Desktop/KICC/WSKICC/src/java/webservices/ProdutosResource.java</file>
-            <file>file:/C:/Users/igorc/Desktop/KICC/WSKICC/src/java/dao/ClienteDAO.java</file>
+            <file>file:/C:/Users/Elaine/Documents/ProjetoKiccWebService/src/java/dao/Conecta.java</file>
+            <file>file:/C:/Users/Elaine/Documents/ProjetoKiccWebService/src/java/dao/ProdutoDAO.java</file>
+            <file>file:/C:/Users/Elaine/Documents/ProjetoKiccWebService/src/java/classes/Utilitarios.java</file>
+            <file>file:/C:/Users/Elaine/Documents/ProjetoKiccWebService/src/java/classes/Produto.java</file>
+            <file>file:/C:/Users/Elaine/Documents/ProjetoKiccWebService/src/java/webservices/ApplicationConfig.java</file>
+            <file>file:/C:/Users/Elaine/Documents/ProjetoKiccWebService/src/java/classes/Cliente.java</file>
+            <file>file:/C:/Users/Elaine/Documents/ProjetoKiccWebService/src/java/webservices/ProdutosResource.java</file>
+            <file>file:/C:/Users/Elaine/Documents/ProjetoKiccWebService/nbproject/build-impl.xml</file>
+            <file>file:/C:/Users/Elaine/Documents/ProjetoKiccWebService/src/java/webservices/ClientesResource.java</file>
+            <file>file:/C:/Users/Elaine/Documents/ProjetoKiccWebService/src/conf/MANIFEST.MF</file>
+            <file>file:/C:/Users/Elaine/Documents/ProjetoKiccWebService/src/java/dao/ClienteDAO.java</file>
+            <file>file:/C:/Users/Elaine/Documents/ProjetoKiccWebService/web/index.html</file>
         </group>
     </open-files>
 </project-private>
