@@ -33,6 +33,20 @@ public class ClientesResource {
     }
 
     @GET
+    @Path("{email}/{senha}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Cliente login(@PathParam("email") String email, @PathParam("senha") String senha) {
+        
+        Cliente cliente = new ClienteDAO().login(email, senha);
+        
+        if(cliente == null){
+            return null;
+        } else {
+            return cliente;
+        }
+    }
+    
+    @GET
     @Path("{email}")
     @Produces(MediaType.APPLICATION_JSON)
     public Cliente getCliente(@PathParam("email") String email) {
