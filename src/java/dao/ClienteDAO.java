@@ -5,7 +5,39 @@ import java.sql.*;
 import java.util.ArrayList;
 
 public class ClienteDAO {
-    
+
+
+    public Cliente login(String email, String senha) {
+        Cliente cliente = new Cliente();
+        try {
+            Connection conn = Conecta.getConexao();
+            PreparedStatement ps = conn.prepareStatement("SELECT * FROM tb_cliente WHERE email=? AND senha=? LIMIT 1");
+            ps.setString(1, email);
+            ps.setString(2, senha);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                cliente.setId_cliente(rs.getInt("id_cliente"));
+                cliente.setCpf(rs.getString("cd_cpf"));
+                cliente.setNome(rs.getString("nm_cliente"));
+                cliente.setDataNascimento(rs.getString("dt_nascimento"));
+                cliente.setNivel_acesso(rs.getInt("ds_nivel_de_acesso"));
+                cliente.setLogin(rs.getString("login"));
+                cliente.setSenha(rs.getString("senha"));
+                cliente.setEmail(rs.getString("email"));
+                cliente.setCelular(rs.getString("nm_celular"));
+                cliente.setTelefone(rs.getString("nm_telefone"));
+                cliente.setCartao_credito(rs.getString("cartao_de_credito"));
+                cliente.setAtivo(rs.getInt("ativo"));
+                cliente.setEndereco(rs.getString("id_endereco"));
+            }
+            conn.close();
+        } catch (Exception e) {
+            cliente = null;
+        }
+        return cliente;
+    }
+
     public Cliente getCliente(String email) {
 
         Cliente cliente = new Cliente();
@@ -47,14 +79,14 @@ public class ClienteDAO {
     }
 
     public static Cliente cadastrar(Cliente user) {
-        
+
         try {
             // Conexão com banco de dados
             Connection con = Conecta.getConexao();
-            
+
             // Sintaxe para inserir os dados no banco, tem 12
             String sql = "INSERT INTO tb_cliente(cd_cpf, nm_cliente, dt_nascimento, ds_nivel_de_acesso, login, senha, email, nm_celular, nm_telefone, cartao_de_credito, ativo, id_endereco) values(?,?,?,?,?,?,?,?,?,?,?,?)";
-            
+
             PreparedStatement ps = con.prepareStatement(sql);
 
             ps.setString(1, user.getCpf());
@@ -69,33 +101,32 @@ public class ClienteDAO {
             ps.setString(10, user.getCartao_credito());
             ps.setInt(11, user.getAtivo());
             ps.setString(12, user.getEndereco());
-            
+
             ps.execute();
-            
+
             ps.close();
             con.close();
-            
-            //out.println("Cadastro realizado !");
 
+            //out.println("Cadastro realizado !");
         } catch (Exception e) {
             e.printStackTrace();
-            
+
         }
 
         return user;
     }
-    
+
     public ArrayList<Cliente> getClientes() {
         ArrayList<Cliente> lista = new ArrayList<Cliente>();
-        try{
+        try {
             Connection con = Conecta.getConexao();
             Statement stmt = con.createStatement();
             String sql = "SELECT * FROM tb_cliente";
             ResultSet rs = stmt.executeQuery(sql);
-            
-            while(rs.next()){
+
+            while (rs.next()) {
                 Cliente cliente = new Cliente();
-                
+
                 cliente.setId_cliente(rs.getInt("id_cliente"));
                 cliente.setCpf(rs.getString("cd_cpf"));
                 cliente.setNome(rs.getString("nm_cliente"));
@@ -109,18 +140,18 @@ public class ClienteDAO {
                 cliente.setCartao_credito(rs.getString("cartao_de_credito"));
                 cliente.setAtivo(rs.getInt("ativo"));
                 cliente.setEndereco(rs.getString("id_endereco"));
-            
-            lista.add(cliente);
+
+                lista.add(cliente);
             }
-            
+
             rs.close();
             stmt.close();
             con.close();
-            
-        } catch(Exception e){
+
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return lista;
     }
-       
+
 }
