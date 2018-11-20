@@ -96,8 +96,8 @@ public class ProdutoDAO {
         ArrayList <Produto> produtos = new ArrayList();
         
         try {
-            Connection con = Conecta.getConexao();            
-            String sql = "SELECT * FROM tb_produto WHERE UPPER(nm_produto) LIKE UPPER(?)ORDER BY id_produto ASC";
+            Connection con = Conecta.getConexao();
+            String sql = "SELECT * FROM tb_produto NATURAL JOIN tb_categoria WHERE UPPER(nm_produto) LIKE UPPER(?)ORDER BY id_produto ASC";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, "%"+pesquisa+"%");
             ResultSet rs = ps.executeQuery();
@@ -119,6 +119,7 @@ public class ProdutoDAO {
                 produto.setImagem2( rs.getString("image2") );
                 produto.setImagem3( rs.getString("image3") );
                 produto.setIdCategoria(rs.getInt("id_categoria"));
+                produto.setNomeCategoria(rs.getString("nm_categoria"));
                 
                 produtos.add(produto);
             }

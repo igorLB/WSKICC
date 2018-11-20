@@ -13,7 +13,7 @@ public class Produto extends Utilitarios{
     private String dataValidade;
     private float preco, precoPromocional, peso;
     private int idProduto, idCategoria, quantidade, ativo;
-    private String nome, descricao, marca;
+    private String nome, descricao, marca, nomeCategoria;
     private String imagem1, imagem2, imagem3;
 
     public Produto(){
@@ -29,6 +29,8 @@ public class Produto extends Utilitarios{
         
         return print;
     }
+    
+    
     
     public String getDataValidade() {
         return dataValidade;
@@ -140,6 +142,14 @@ public class Produto extends Utilitarios{
 
     public void setImagem3(String imagem3) {
         this.imagem3 = imagem3;
+    }
+
+    public String getNomeCategoria() {
+        return nomeCategoria;
+    }
+
+    public void setNomeCategoria(String nomeCategoria) {
+        this.nomeCategoria = nomeCategoria;
     }
     
     

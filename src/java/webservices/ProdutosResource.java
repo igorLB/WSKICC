@@ -39,7 +39,7 @@ public class ProdutosResource {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public List<Produto> getUsers(){
+    public List<Produto> getProdutos(){
         List<Produto> lista =  new ProdutoDAO().getProdutos();
         return lista;
     }
@@ -47,12 +47,12 @@ public class ProdutosResource {
     @GET
     @Path("{id_produto}")
     @Produces(MediaType.APPLICATION_JSON)
-    public String getProduto(@PathParam("id_produto") int id_produto) {
+    public Produto getProduto(@PathParam("id_produto") int id_produto) {
         Produto produto = new ProdutoDAO().getProduto(id_produto);
         if(produto == null){
-            return "Usuario não encontrado";
+            return null;
         } else {
-            return produto.toString();
+            return produto;
         }
     }
     
