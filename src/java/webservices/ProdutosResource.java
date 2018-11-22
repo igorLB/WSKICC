@@ -63,4 +63,12 @@ public class ProdutosResource {
         List<Produto> lista =  new ProdutoDAO().buscarProdutos(pesquisa);
         return lista;
     }
+    
+    @GET
+    @Path("buscar/{pesquisa}/{filtro}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<Produto> buscarComFiltro(@PathParam("pesquisa") String pesquisa, @PathParam("filtro") String filtro) {
+        List<Produto> lista =  new ProdutoDAO().buscarProdutosComFiltro(pesquisa, filtro);
+        return lista;
+    }
 }
