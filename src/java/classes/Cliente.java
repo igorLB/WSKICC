@@ -6,7 +6,7 @@ import java.sql.Date;
  * @author Cristiano
  */
 
-public class Cliente extends Utilitarios{
+public class Cliente{
 
     private int id_cliente, nivel_acesso, ativo;
     private String cpf, telefone, celular, login, email, senha, nome, dataNascimento, endereco, cartao_credito;

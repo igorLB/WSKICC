@@ -8,12 +8,12 @@ import java.sql.Date;
  * @author igorc, Cristiano
  */
 
-public class Produto extends Utilitarios{
+public class Produto{
 
     private String dataValidade;
-    private float preco, precoPromocional, peso;
+    private float peso;
     private int idProduto, idCategoria, quantidade, ativo;
-    private String nome, descricao, marca, nomeCategoria;
+    private String nome, descricao, marca, nomeCategoria, preco, precoPromocional;
     private String imagem1, imagem2, imagem3;
 
     public Produto(){
@@ -40,19 +40,19 @@ public class Produto extends Utilitarios{
         this.dataValidade = dataValidade;
     }
 
-    public float getPreco() {
+    public String getPreco() {
         return preco;
     }
 
-    public void setPreco(float preco) {
+    public void setPreco(String preco) {
         this.preco = preco;
     }
 
-    public float getPrecoPromocional() {
+    public String getPrecoPromocional() {
         return precoPromocional;
     }
 
-    public void setPrecoPromocional(float precoPromocional) {
+    public void setPrecoPromocional(String precoPromocional) {
         this.precoPromocional = precoPromocional;
     }
 
